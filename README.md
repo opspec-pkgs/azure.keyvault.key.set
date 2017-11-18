@@ -10,20 +10,20 @@ create a key in azure keyvault
 ## install
 
 ```shell
-opctl pkg install github.com/opspec-pkgs/azure.keyvault.key.set#VERSION
+opctl pkg install github.com/opspec-pkgs/azure.keyvault.key.set#1.0.0
 ```
 
 ## run
 
 ```
-opctl run github.com/opspec-pkgs/azure.keyvault.key.set#VERSION
+opctl run github.com/opspec-pkgs/azure.keyvault.key.set#1.0.0
 ```
 
 ## compose
 
 ```yaml
 op:
-  pkg: { ref: github.com/opspec-pkgs/azure.keyvault.key.set#VERSION }
+  pkg: { ref: github.com/opspec-pkgs/azure.keyvault.key.set#1.0.0 }
   inputs:
     subscriptionId:
     loginId:
@@ -31,11 +31,14 @@ op:
     name:
     vault:
     # end optional args
+    protection:
+    expires:
+    notBefore:
+    ops:
+    size:
     loginTenantId:
     loginType:
     # end optional args
-  outputs:
-    value:
 ```
 
 # Support

@@ -40,7 +40,9 @@ inputs:
   ops:
     string:
       constraints: { minLength: 1 }
-      description: space separated list of permitted JSON web key operations, accepted values; decrypt, encrypt, sign, unwrapKey, verify, wrapKey
+      description: |
+        space separated list of permitted JSON web key operations
+        accepted values; decrypt encrypt sign unwrapKey verify wrapKey
       default: all
   size:
     number:
