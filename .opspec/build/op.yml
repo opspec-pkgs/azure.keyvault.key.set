@@ -1,0 +1,21 @@
+name: build
+description: builds the package
+inputs:
+  version:
+    string:
+      constraints: { format: semver }
+      default: 0.0.0
+  pkg:
+    dir:
+      default: .
+run:
+  serial:
+    - op:
+        pkg: { ref: test }
+        inputs: { pkg }
+    - op:
+        pkg: { ref: github.com/opspec-pkgs/docker.image.build#2.0.0 }
+        inputs:
+          dockerfile: $(/Dockerfile)
+          imageName: 'opspecpkgs/azure.keyvault.key.set:$(version)'
+        outputs: { imageTar }

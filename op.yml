@@ -1,0 +1,78 @@
+name: github.com/opspec-pkgs/azure.keyvault.key.set
+description: create a key in azure keyvault
+inputs:
+  subscriptionId:
+    string:
+      constraints: { minLength: 1 }
+      description: id of azure subscription
+  loginId:
+    string:
+      constraints: { minLength: 1 }
+      description: id of user, service principal, or app to login with
+  loginSecret:
+    string:
+      constraints: { minLength: 1 }
+      description: secret of user, service principal, or app to login with
+      isSecret: true
+  name:
+    string:
+      constraints: { minLength: 1 }
+      description: name of the key
+  vault:
+    string:
+      constraints: { minLength: 1 }
+      description: name of the key vault
+  protection:
+    string:
+      constraints: { enum: [ hsm, software ] }
+      description: type of key protection
+      default: software
+  expires:
+    string:
+      constraints: { minLength: 1 }
+      description: expiration utc datetime (Y-m-d'T'H:M:S'Z'), default=1 year
+      default: " "
+  notBefore:
+    string:
+      constraints: { minLength: 1 }
+      description: key not usable before the provided utc datetime (Y-m-d'T'H:M:S'Z'), default=now
+      default: " "
+  ops:
+    string:
+      constraints: { minLength: 1 }
+      description: space separated list of permitted JSON web key operations, accepted values; decrypt, encrypt, sign, unwrapKey, verify, wrapKey
+      default: all
+  size:
+    number:
+      constraints: { enum: [ 1024, 2048 ] }
+      description: key size in bytes
+      default: 2048
+  loginTenantId:
+    string:
+      constraints: { minLength: 1 }
+      description: tenant id of user, service principal, or app to login with
+      default: ' '
+  loginType:
+    string:
+      constraints: { enum: [user, sp]}
+      description: type of login; 'user' (default) or 'sp' for service principal
+      default: user
+version: 1.0.0
+run:
+  container:
+    image: { ref: 'opspecpkgs/azure.keyvault.key.set:1.0.0' }
+    cmd: [ /cmd.sh ]
+    files: { /cmd.sh }
+    envVars:
+      subscriptionId:
+      loginId:
+      loginSecret:
+      name:
+      vault:
+      protection:
+      expires:
+      notBefore:
+      ops:
+      size:
+      loginTenantId:
+      loginType:
