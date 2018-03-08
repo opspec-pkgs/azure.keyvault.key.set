@@ -38,9 +38,7 @@ createCmd=$(printf "%s --protection %s" "$createCmd" "$protection")
 createCmd=$(printf "%s --size %s" "$createCmd" "$size")
 
 # handle opts
-if [ "$expires" = " " ]; then
-    createCmd=$(printf "%s --expires %s" "$createCmd" $(date -u -d next-year +%Y-%m-%d'T'%H:%M:%S'Z'))
-else
+if [ "$expires" != " " ]; then
     createCmd=$(printf "%s --expires %s" "$createCmd" "$expires")
 fi
 

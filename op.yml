@@ -30,7 +30,7 @@ inputs:
   expires:
     string:
       constraints: { minLength: 1 }
-      description: expiration utc datetime (Y-m-d'T'H:M:S'Z'), default=1 year
+      description: expiration utc datetime (Y-m-d'T'H:M:S'Z')
       default: " "
   notBefore:
     string:
@@ -59,10 +59,10 @@ inputs:
       constraints: { enum: [user, sp]}
       description: type of login; 'user' (default) or 'sp' for service principal
       default: user
-version: 1.0.0
+version: 1.1.0
 run:
   container:
-    image: { ref: 'opspecpkgs/azure.keyvault.key.set:1.0.0' }
+    image: { ref: 'azuresdk/azure-cli-python:2.0.25' }
     cmd: [ /cmd.sh ]
     files: { /cmd.sh }
     envVars:
