@@ -8,14 +8,14 @@ create a key in azure keyvault
 
 # Format
 
-this version of the pkg is in [![opspec 0.1.5](https://img.shields.io/badge/opspec-0.1.5-brightgreen.svg?colorA=6b6b6b&colorB=fc16be)](https://opspec.io/0.1.5/packages.html) format
+the op uses [![opspec 0.1.5](https://img.shields.io/badge/opspec-0.1.5-brightgreen.svg?colorA=6b6b6b&colorB=fc16be)](https://opspec.io/0.1.5) definition format
 
 # Example usage
 
 ## Install
 
 ```shell
-opctl pkg install github.com/opspec-pkgs/azure.keyvault.key.set#1.1.0
+opctl op install github.com/opspec-pkgs/azure.keyvault.key.set#1.1.0
 ```
 
 ## Run
@@ -28,27 +28,27 @@ opctl run github.com/opspec-pkgs/azure.keyvault.key.set#1.1.0
 
 ```yaml
 op:
-  pkg: { ref: github.com/opspec-pkgs/azure.keyvault.key.set#1.1.0 }
+  ref: github.com/opspec-pkgs/azure.keyvault.key.set#1.1.0
   inputs:
-    subscriptionId:
     loginId:
     loginSecret:
     name:
+    subscriptionId:
     vault:
     # params w/ default
-    protection:
     expires:
-    notBefore:
-    ops:
-    size:
     loginTenantId:
     loginType:
+    notBefore:
+    ops:
+    protection:
+    size:
 ```
 
 # Support
 
 join us on
-[![Slack](https://opspec-slackin.herokuapp.com/badge.svg)](https://opspec-slackin.herokuapp.com/)
+[![Slack](https://opctl-slackin.herokuapp.com/badge.svg)](https://opctl-slackin.herokuapp.com/)
 or
 [open an issue](https://github.com/opspec-pkgs/azure.keyvault.key.set/issues)
 
